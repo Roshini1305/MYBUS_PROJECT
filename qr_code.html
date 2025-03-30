@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBus - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            flex-wrap: nowrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo img {
+            height: 110px;
+        }
+
+        .header-text {
+            color: #004aad;
+            margin-right: 50px;
+            white-space: nowrap;
+        }
+
+        .header-text h1 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Approval Boxes - Uniform Size */
+        .approvals {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .box {
+            background-color: #ffffff;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 180px;
+            height: 120px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid #FFD700;
+
+        }
+
+        .box img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-color: #ffcc00;
+        }
+
+        /* Running Animation Section */
+
+
+        .running-section {
+            display: flex;
+            align-items: center;
+            background-color: red;
+            /* Red background */
+            padding: 3px 7px;
+            /* Remove padding so it sticks to the upper section */
+            margin-top: 0;
+            /* Ensure no extra space */
+            height: 60px;
+            /* Reduce height for a compact layout */
+        }
+
+
+
+
+        .fixed-left {
+            width: 30%;
+            font-size: 18px;
+            font-weight: bold;
+            color: #004aad;
+        }
+
+        .marquee-text {
+            width: 70%;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 18px;
+            /* Increase font size */
+            font-weight: bold;
+            /* Make text stand out */
+            flex-grow: 1;
+
+        }
+
+        .marquee-text span {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            /* Slow down the animation */
+            color: white;
+            padding-left: 0;
+            /* Start from visible area */
+            min-width: 100%;
+            /* Ensure readability against the red background */
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+        /* Navigation Menu */
+        .nav-bar {
+            background-color: #004aad;
+            display: flex;
+            justify-content: center;
+            padding: 0px 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-bar a:hover {
+            background-color: #ffcc00;
+            color: #004aad;
+            border-radius: 5px;
+        }
+
+        /* Announcement Button */
+        .announcement {
+            background-color: #FDC500;
+            /* Same Yellow as Boxes */
+            color: black;
+            padding: 10px 20px;
+            /* Keep original size */
+            border: none;
+            /* Removes the border */
+            border-radius: 5px;
+            font-size: 16px;
+            /* Keep original font size */
+            cursor: pointer;
+            transition: 0.3s;
+            margin-left: 20px;
+            margin-right: 20px;
+            height: auto;
+            /* Space between certification boxes */
+            display: flex;
+            align-items: center;
+            /* Center text vertically */
+            justify-content: center;
+            /* Center text horizontally */
+        }
+
+
+
+
+        .announcement:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        .certification-box {
+            display: inline-block;
+            padding: 3px 6px;
+            /* Reduce padding */
+            font-size: 12px;
+            /* Reduce font size */
+            border: 3px solid #FDC500;
+            /* Yellow border */
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            width: 110px;
+            /* Reduce box width */
+            height: 40px;
+            /* Reduce box height */
+            margin-left: 20px;
+            /* Add left space */
+            margin-right: 8px;
+            /* Add spacing between boxes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certification-container {
+            margin-bottom: 15px;
+            /* Creates gap between boxes and Announcements */
+        }
+
+        * * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        /* Top Bar */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 130px;
+            margin-right: 10px;
+
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            color: #003366;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: gray;
+        }
+
+        /* Feature Icons */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .feature {
+            text-align: center;
+            border: 2px solid gold;
+            border-radius: 10px;
+            padding: 10px;
+            width: 120px;
+        }
+
+        .feature img {
+            width: 30px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+        }
+
+
+        /* Navigation Bar */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            /* Aligns left and right sections */
+            align-items: center;
+            background-color: #002147;
+            /* Dark blue navbar */
+            padding: 10px 20px;
+        }
+
+        /* Left-aligned Navigation Links */
+        .nav-left {
+            display: flex;
+            gap: 20px;
+            /* Space between links */
+            margin-left: 60px;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .nav-left a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Right-aligned Buttons */
+        .nav-right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-button {
+            background-color: #FDC500;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-button:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        /* Common Button Styling */
+        /* Default Button Styling */
+        .button {
+            background-color: #ffc107;
+            /* Yellow */
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover Effect */
+        .button:hover {
+            background-color: #ff9800;
+            /* Orange */
+            transform: scale(1.1);
+            /* Slight zoom */
+        }
+
+        /* Click (Active) Effect - Same as "Offers Available" */
+        .button:active,
+        .active-btn {
+            background-color: black !important;
+            /* Black */
+            color: #ffc107 !important;
+            /* Yellow */
+        }
+
+        /* Pop-up Styles */
+        .popup-overlay {
+    display: none; /* Initially hidden */
+    position: fixed; /* Ensures it overlays everything */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay effect */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%; /* Ensure it's responsive */
+    text-align: center;
+}
+
+
+        .popup h2 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .popup ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popup ul li {
+            padding: 8px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Offers Button Effect */
+        .nav-button:active,
+        .nav-button.clicked {
+            background-color: black !important;
+            color: yellow !important;
+        }
+
+        .qr-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust height as needed */
+}
+
+.qr-container img {
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+}
+.qr-description {
+    font-size: 24px; /* Increased font size */
+    font-weight: bold;
+    margin-top: 15px; /* Adds space between QR code and text */
+    color: #333; /* Adjust color as needed */
+    text-align: center;
+}
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <img src="/images/bus logo.png" alt="MyBus Logo">
+            <div class="header-text">
+                <h1>MyBus - Smart Bus Tracking</h1>
+                <p class="sub-text">Approved by AICTE | Trusted by 1M+ Users | ISO Certified</p>
+            </div>
+        </div>
+
+        <!-- Approval Boxes -->
+        <div class="approvals">
+            <div class="box"><img src="/images/live tracking.jpg" alt="Tracking">Live Tracking</div>
+            <div class="box"><img src="/images/payment .jpg" alt="Payments">Secure Payments</div>
+            <div class="box"><img src="/images/book.jpg" alt="Booking">Fast Booking</div>
+            <div class="box"><img src="/images/bus.jpg" alt="Trust">Trusted Service</div>
+            <div class="box"><img src="/images/customer.jpg" alt="Support">Customer Support</div>
+        </div>
+    </div>
+    <!-- Running Animation Section -->
+    <div class="running-section">
+        <div class="certification-box">STA Certified</div>
+        <div class="certification-box">MoRTH Recognized</div>
+        <div class="certification-box">TNSTC Approved</div>
+        <div class="certification-box">ISO Certified</div>
+
+        <button class="announcement">Announcements</button>
+        <div class="marquee-text"><span>Welcome to MyBus! Track your bus live and enjoy safe travel.MyBus is a smart bus
+                tracking and automation system designed to enhance public transportation by providing real-time
+                tracking, digital ticketing, and route scheduling. It aims to offer a seamless travel experience for
+                passengers</span></div>
+
+    </div>
+    <div class="nav-container">
+        <!-- Left-aligned Navigation Links -->
+        <div class="nav-left">
+            <a href="#" onclick="loadHome()">Home</a>
+            <a href="#" onclick="loadPage()">About Us</a>
+            <a href="#" onclick="loadBus()">Bus Routes</a>
+            <a href="#" onclick="loadBus()">Live Tracking</a>
+            <a href="#" onclick="loadTicket()">Ticket Booking</a>
+            <a href="#" onclick="feedBus()">Feedback</a>
+            <a href="#" onclick="loadOff()">Offers</a>
+            <a href="#" onclick="loadCon()">Contact Us</a>
+        </div>
+
+        <div class="nav-right">
+
+            <button class="nav-button" onclick="showOffers(this)">Offers Available</button>
+
+            <!-- Pop-up for Offers -->
+            <div id="offerPopup" class="popup-overlay">
+                <div class="popup">
+                    <h2>Available Offers</h2>
+                    <ul>
+                        <li>✨ Flat 10% off on all tickets</li>
+                        <li>🎁 Buy 2, Get 1 Free</li>
+                        <li>💰 20% Cashback on Wallet Payments</li>
+                        <li>📚 Student Discount: Save 15%</li>
+                        <li>👵 Senior Citizen Special: 25% Off</li>
+                        <li>🌟 Weekend Travel Discount: 12% Off</li>
+                        <li>🎉 Festive Special - ₹50 Off</li>
+                        <li>🤑 Refer & Earn ₹100</li>
+                        <li>🌄 Early Bird Offer: 8% Off</li>
+                        <li>✈ Free Travel Insurance</li>
+                        <li>💸 Flat ₹30 Off for New Users</li>
+                        <li>👥 Extra 5% Off for Group Bookings</li>
+                        <li>🚀 50% Off on First Booking</li>
+                        <li>🌜 Midnight Travel Deal: 15% Off</li>
+                        <li>📲 Exclusive App Users: ₹75 Cashback</li>
+                    </ul>
+                    <button class="close-btn" onclick="closeOffers()">Close</button>
+                </div>
+            </div>
+            <!-- Navigation Bar -->
+            <button id="login-btn" class="button" onclick="location.href='login.html'">Login</button>
+            <button id="signup-btn" class="button" onclick="location.href='signup.html'">Sign Up</button>
+
+
+
+        </div>
+    </div>
+
+    <div class="qr-container">
+        <img src="/images/qr_code.png" alt="QR Code">
+        <p class="qr-description">Scan for Payment</p>
+    </div>
+
+    
+    <script>
+        function loadPage(){
+        window.location.href="about.html";
+    }
+    function loadHome(){
+        window.location.href="index.html";
+    }
+    function loadBus(){
+        window.location.href="busroutes.html";
+    }
+    function feedBus(){
+        window.location.href="feedback.html";
+    }
+    function showOffers() {
+    let popup = document.getElementById('offerPopup');
+    popup.style.display = 'flex'; // Ensure it shows fully
+}
+
+function closeOffers() {
+    document.getElementById('offerPopup').style.display = 'none';
+}
+function loadnew(){
+        window.location.href="new.html";
+    }
+    function loadOff(){
+        window.location.href="offer.html";
+    }
+    function loadCon(){
+        window.location.href="contactus.html";
+    }
+    function loadTicket(){
+        window.location.href="ticket.html";
+    }
+
+    </script>
+
+
+</body>
+
+</html>

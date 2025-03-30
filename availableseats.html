@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBus - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            flex-wrap: nowrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo img {
+            height: 110px;
+        }
+
+        .header-text {
+            color: #004aad;
+            margin-right: 50px;
+            white-space: nowrap;
+        }
+
+        .header-text h1 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Approval Boxes - Uniform Size */
+        .approvals {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .box {
+            background-color: #ffffff;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 180px;
+            height: 120px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid #FFD700;
+            color:black;
+
+        }
+
+        .box img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-color: #ffcc00;
+        }
+
+        /* Running Animation Section */
+
+
+        .running-section {
+            display: flex;
+            align-items: center;
+            background-color: red;
+            /* Red background */
+            padding: 3px 7px;
+            /* Remove padding so it sticks to the upper section */
+            margin-top: 0;
+            /* Ensure no extra space */
+            height: 60px;
+            /* Reduce height for a compact layout */
+        }
+
+
+
+
+        .fixed-left {
+            width: 30%;
+            font-size: 18px;
+            font-weight: bold;
+            color: #004aad;
+        }
+
+        .marquee-text {
+            width: 70%;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 18px;
+            /* Increase font size */
+            font-weight: bold;
+            /* Make text stand out */
+            flex-grow: 1;
+
+        }
+
+        .marquee-text span {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            /* Slow down the animation */
+            color: white;
+            padding-left: 0;
+            /* Start from visible area */
+            min-width: 100%;
+            /* Ensure readability against the red background */
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+        /* Navigation Menu */
+        .nav-bar {
+            background-color: #004aad;
+            display: flex;
+            justify-content: center;
+            padding: 0px 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-bar a:hover {
+            background-color: #ffcc00;
+            color: #004aad;
+            border-radius: 5px;
+        }
+
+        /* Announcement Button */
+        .announcement {
+            background-color: #FDC500;
+            /* Same Yellow as Boxes */
+            color: black;
+            padding: 10px 20px;
+            /* Keep original size */
+            border: none;
+            /* Removes the border */
+            border-radius: 5px;
+            font-size: 16px;
+            /* Keep original font size */
+            cursor: pointer;
+            transition: 0.3s;
+            margin-left: 20px;
+            margin-right: 20px;
+            height: auto;
+            /* Space between certification boxes */
+            display: flex;
+            align-items: center;
+            /* Center text vertically */
+            justify-content: center;
+            /* Center text horizontally */
+        }
+
+
+
+
+        .announcement:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        .certification-box {
+            display: inline-block;
+            padding: 3px 6px;
+            /* Reduce padding */
+            font-size: 12px;
+            /* Reduce font size */
+            border: 3px solid #FDC500;
+            /* Yellow border */
+            border-radius: 5px;
+            background-color: white;
+            color:black;
+            text-align: center;
+            width: 110px;
+            /* Reduce box width */
+            height: 40px;
+            /* Reduce box height */
+            margin-left: 20px;
+            /* Add left space */
+            margin-right: 8px;
+            /* Add spacing between boxes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certification-container {
+            margin-bottom: 15px;
+            /* Creates gap between boxes and Announcements */
+        }
+
+        * * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        /* Top Bar */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 130px;
+            margin-right: 10px;
+
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            color: #003366;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: gray;
+        }
+
+        /* Feature Icons */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .feature {
+            text-align: center;
+            border: 2px solid gold;
+            border-radius: 10px;
+            padding: 10px;
+            width: 120px;
+        }
+
+        .feature img {
+            width: 30px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+        }
+
+
+        /* Navigation Bar */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            /* Aligns left and right sections */
+            align-items: center;
+            background-color: #002147;
+            /* Dark blue navbar */
+            padding: 10px 20px;
+        }
+
+        /* Left-aligned Navigation Links */
+        .nav-left {
+            display: flex;
+            gap: 20px;
+            /* Space between links */
+            margin-left: 60px;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .nav-left a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Right-aligned Buttons */
+        .nav-right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-button {
+            background-color: #FDC500;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-button:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        /* Common Button Styling */
+        /* Default Button Styling */
+        .button {
+            background-color: #ffc107;
+            /* Yellow */
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover Effect */
+        .button:hover {
+            background-color: #ff9800;
+            /* Orange */
+            transform: scale(1.1);
+            /* Slight zoom */
+        }
+
+        /* Click (Active) Effect - Same as "Offers Available" */
+        .button:active,
+        .active-btn {
+            background-color: black !important;
+            /* Black */
+            color: #ffc107 !important;
+            /* Yellow */
+        }
+
+        /* Pop-up Styles */
+        .popup-overlay {
+    display: none; /* Initially hidden */
+    position: fixed; /* Ensures it overlays everything */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay effect */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%; /* Ensure it's responsive */
+    text-align: center;
+}
+
+
+        .popup h2 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .popup ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popup ul li {
+            padding: 8px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Offers Button Effect */
+        .nav-button:active,
+        .nav-button.clicked {
+            background-color: black !important;
+            color: yellow !important;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /*background: url('/images/busroutes.png') no-repeat center center/cover;*/
+            height: 100vh;
+            
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Increased box-shadow width */
+            width: 600px;
+            display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto; /* Centers horizontally */
+    position: relative;
+    top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .cost-info {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .bus-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .bus-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px; /* Increased gap between left and right side seats */
+            align-items: center;
+        }
+
+        .bus-left, .bus-right {
+            display: flex;
+            gap: 10px; /* Space between seats within left or right side */
+        }
+
+        .seat {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .seat:hover {
+            background-color: #e6e6e6;
+        }
+
+        .seat.booked {
+            background-color: #28a745; /* Green for booked */
+            border-color: #28a745;
+        }
+
+        .seat.available {
+            background-color: white;
+            border-color: #007BFF;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-item span {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .booked-legend {
+            background-color: #28a745;
+        }
+
+        .available-legend {
+            background-color: white;
+            border-color: #007BFF;
+        }
+
+        .book-now-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            color: black;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .book-now-button:hover {
+            background-color: #002147;
+            color:white;
+            transform: scale(1.05);
+        }
+
+        .summary-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.proceed-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.proceed-btn:hover {
+    background-color: #0056b3;
+}
+
+.available {
+    background-color: white;
+}
+
+.selected {
+    background-color: #28a745;
+}
+
+.booked {
+    background-color: red;
+    pointer-events: none; /* Prevents re-selection */
+}
+
+#proceedToPayment{
+    background: #002147; /* Elegant Greenish Blue */
+            color: white; 
+            border: none; 
+            padding: 14px 28px; 
+            font-size: 20px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border-radius: 8px;
+            transition: 0.3s;
+            
+}
+
+#proceedToPayment:hover {
+    background: #FDC500; /* Darker shade on hover */
+    color:black;
+}
+
+#payment-options {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .payment-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        .payment-method img {
+            width: 100px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .payment-method img:hover {
+            transform: scale(1.1);
+        }
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <img src="/images/bus logo.png" alt="MyBus Logo">
+            <div class="header-text">
+                <h1>MyBus - Smart Bus Tracking</h1>
+                <p class="sub-text">Approved by AICTE | Trusted by 1M+ Users | ISO Certified</p>
+            </div>
+        </div>
+
+        <!-- Approval Boxes -->
+        <div class="approvals">
+            <div class="box"><img src="/images/live tracking.jpg" alt="Tracking">Live Tracking</div>
+            <div class="box"><img src="/images/payment .jpg" alt="Payments">Secure Payments</div>
+            <div class="box"><img src="/images/book.jpg" alt="Booking">Fast Booking</div>
+            <div class="box"><img src="/images/bus.jpg" alt="Trust">Trusted Service</div>
+            <div class="box"><img src="/images/customer.jpg" alt="Support">Customer Support</div>
+        </div>
+    </div>
+    <!-- Running Animation Section -->
+    <div class="running-section">
+        <div class="certification-box">STA Certified</div>
+        <div class="certification-box">MoRTH Recognized</div>
+        <div class="certification-box">TNSTC Approved</div>
+        <div class="certification-box">ISO Certified</div>
+
+        <button class="announcement">Announcements</button>
+        <div class="marquee-text"><span>Welcome to MyBus! Track your bus live and enjoy safe travel.MyBus is a smart bus
+                tracking and automation system designed to enhance public transportation by providing real-time
+                tracking, digital ticketing, and route scheduling. It aims to offer a seamless travel experience for
+                passengers</span></div>
+
+    </div>
+    <div class="nav-container">
+        <!-- Left-aligned Navigation Links -->
+        <div class="nav-left">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/bus-routes">Bus Routes</a>
+            <a href="/live-tracking">Live Tracking</a>
+            <a href="/ticket-booking">Ticket Booking</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/offers">Offers</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+
+        <div class="nav-right">
+
+            <button class="nav-button" onclick="showOffers(this)">Offers Available</button>
+
+            <!-- Pop-up for Offers -->
+            <div id="offerPopup" class="popup-overlay">
+                <div class="popup">
+                    <h2>Available Offers</h2>
+                    <ul>
+                        <li>✨ Flat 10% off on all tickets</li>
+                        <li>🎁 Buy 2, Get 1 Free</li>
+                        <li>💰 20% Cashback on Wallet Payments</li>
+                        <li>📚 Student Discount: Save 15%</li>
+                        <li>👵 Senior Citizen Special: 25% Off</li>
+                        <li>🌟 Weekend Travel Discount: 12% Off</li>
+                        <li>🎉 Festive Special - ₹50 Off</li>
+                        <li>🤑 Refer & Earn ₹100</li>
+                        <li>🌄 Early Bird Offer: 8% Off</li>
+                        <li>✈ Free Travel Insurance</li>
+                        <li>💸 Flat ₹30 Off for New Users</li>
+                        <li>👥 Extra 5% Off for Group Bookings</li>
+                        <li>🚀 50% Off on First Booking</li>
+                        <li>🌜 Midnight Travel Deal: 15% Off</li>
+                        <li>📲 Exclusive App Users: ₹75 Cashback</li>
+                    </ul>
+                    <button class="close-btn" onclick="closeOffers()">Close</button>
+                </div>
+            </div>
+            <!-- Navigation Bar -->
+            <button id="login-btn" class="button" onclick="location.href='login.html'">Login</button>
+            <button id="signup-btn" class="button" onclick="location.href='signup.html'">Sign Up</button>
+            
+            
+
+
+        </div>
+        <div id="profileIcon" style="display: none;">
+            <img src="profile.png" alt="Profile" width="40px" height="40px">
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Available Seats</h1>
+        <div class="cost-info">Seat Cost: Rs.350</div>
+
+        <div class="bus-container">
+            <!-- Row 1 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">1</div>
+                    <div class="seat booked">2</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">3</div>
+                    <div class="seat booked">4</div>
+                    <div class="seat available" onclick="selectSeat(this)">5</div>
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">6</div>
+                    <div class="seat booked">7</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">8</div>
+                    <div class="seat available" onclick="selectSeat(this)">9</div>
+                    <div class="seat booked">10</div>
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">11</div>
+                    <div class="seat booked">12</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">13</div>
+                    <div class="seat available" onclick="selectSeat(this)">14</div>
+                    <div class="seat booked">15</div>
+                </div>
+            </div>
+            <!-- Row 4 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">16</div>
+                    <div class="seat booked">17</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">18</div>
+                    <div class="seat available" onclick="selectSeat(this)">19</div>
+                    <div class="seat booked">20</div>
+                </div>
+            </div>
+            <!-- Row 5 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat booked">21</div>
+                    <div class="seat available" onclick="selectSeat(this)">22</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">23</div>
+                    <div class="seat booked">24</div>
+                    <div class="seat available" onclick="selectSeat(this)">25</div>
+                </div>
+            </div>
+            <!-- Row 6 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">26</div>
+                    <div class="seat booked">27</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">28</div>
+                    <div class="seat available" onclick="selectSeat(this)">29</div>
+                    <div class="seat booked">30</div>
+                </div>
+            </div>
+            <!-- Row 7 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat booked">31</div>
+                    <div class="seat available" onclick="selectSeat(this)">32</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">33</div>
+                    <div class="seat booked">34</div>
+                    <div class="seat available" onclick="selectSeat(this)">35</div>
+                </div>
+            </div>
+            <!-- Row 8 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">36</div>
+                    <div class="seat booked">37</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">38</div>
+                    <div class="seat available" onclick="selectSeat(this)">39</div>
+                    <div class="seat booked">40</div>
+                </div>
+            </div>
+            <!-- Row 9 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat booked">41</div>
+                    <div class="seat available" onclick="selectSeat(this)">42</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">43</div>
+                    <div class="seat booked">44</div>
+                    <div class="seat available" onclick="selectSeat(this)">45</div>
+                </div>
+            </div>
+            <!-- Row 10 -->
+            <div class="bus-row">
+                <div class="bus-left">
+                    <div class="seat available" onclick="selectSeat(this)">46</div>
+                    <div class="seat booked">47</div>
+                </div>
+                <div class="bus-right">
+                    <div class="seat available" onclick="selectSeat(this)">48</div>
+                    <div class="seat available" onclick="selectSeat(this)">49</div>
+                    <div class="seat booked">50</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="book-now-button" id="bookNowButton" onclick="bookSeat(); scrollToBookingDetails()">Book Now</button>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span class="available-legend"></span>
+                <p>Available</p>
+            </div>
+            <div class="legend-item">
+                <span class="booked-legend"></span>
+                <p>Booked</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="bookingDetails" style="
+    display: none;
+    background: #ffffff; /* Clean White Background */
+    color: #333; /* Dark Gray Text for Better Readability */
+    padding: 30px;
+    margin: 40px auto;
+    width: 50%;
+    border-radius: 15px;
+    font-size: 22px;
+    line-height: 1.8;
+    text-align: left;
+    position: relative;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Soft Shadow for Depth */
+    border-top: 5px solid red; /* Elegant Top Border */
+    text-align: center; /* Centers the section */
+">
+
+    <!-- Centered Stylish Heading -->
+    <h2 style="
+        text-align: center; 
+        margin-bottom: 20px; 
+        font-size: 28px; 
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: red; /* Attractive Coral Color */
+    ">Booking Details</h2>
+
+<div style="width: 80%; margin: auto; text-align: left;">
+    <p><strong>Source:</strong> <span id="sourceValue">${bus.source}</span></p>
+    <p><strong>Destination:</strong> <span id="destinationValue">${bus.destination}</span></p>
+    <p><strong>Seats Selected:</strong> <span id="seatCount">0</span></p>
+    <p><strong>Total Cost:</strong> <span id="totalCost">0</span></p>
+</div>
+
+    <!-- Centered Proceed to Payment Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="proceedToPayment">
+            Proceed to Payment
+        </button>
+    </div>
+</div>
+
+<div id="payment-options" class="payment-container">
+    
+    <a href="qr_code.html" class="payment-method" target="_blank">
+        <img src="/images/phonepe.jpg" alt="PhonePe">
+        
+    </a>
+    <a href="qr_code.html" class="payment-method" target="_blank">
+        <img src="/images/gpay.avif" alt="GPay">
+        
+    </a>
+</div>
+    
+    <script>
+        function loadPage() {
+            window.location.href = "about.html";
+        }
+    
+        function loadHome() {
+            window.location.href = "index.html";
+        }
+    
+        function loadBus() {
+            window.location.href = "busroutes.html";
+        }
+    
+        function feedBus() {
+            window.location.href = "feedback.html";
+        }
+    
+        function showOffers() {
+            let popup = document.getElementById('offerPopup');
+            popup.style.display = 'flex';
+        }
+    
+        function closeOffers() {
+            document.getElementById('offerPopup').style.display = 'none';
+        }
+    
+        function loadnew() {
+            window.location.href = "new.html";
+        }
+    
+        function loadOff() {
+            window.location.href = "offer.html";
+        }
+    
+        function loadCon() {
+            window.location.href = "contactus.html";
+        }
+    
+        function loadTicket() {
+            window.location.href = "ticket.html";
+        }
+       
+        function selectSeat(seat) {
+    // Toggle 'selected' class
+    seat.classList.toggle("selected");
+
+    // Change background color based on selection
+    if (seat.classList.contains("selected")) {
+        seat.style.backgroundColor = "green"; // Selected seats turn green
+        seat.style.color = "white"; // Text color for visibility
+    } else {
+        seat.style.backgroundColor = "white"; // Unselected seats turn white
+        seat.style.color = "black"; // Reset text color
+    }
+}
+
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            let seats = document.querySelectorAll(".seat");
+    
+            seats.forEach(seat => {
+                seat.addEventListener("click", function () {
+                    if (this.classList.contains("booked")) {
+                        return; // Do nothing if the seat is already booked
+                    }
+    
+                    // Toggle seat selection
+                    if (this.classList.contains("selected")) {
+                        this.classList.remove("selected");
+                        this.classList.add("available"); // Change back to white
+                    } else {
+                        this.classList.remove("available");
+                        this.classList.add("selected"); // Change to green
+                    }
+                });
+            });
+
+            function scrollToBookingDetails() {
+    const element = document.getElementById("bookingDetails");
+    if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+    } else {
+        console.error("Element #bookingDetails not found!");
+    }
+}
+
+// Ensure the function is accessible globally
+window.scrollToBookingDetails = scrollToBookingDetails;
+
+            let bookNowButton = document.getElementById("bookNowButton");
+
+    
+            if (bookNowButton) {
+                bookNowButton.addEventListener("click", function () {
+                    let selectedSeats = document.querySelectorAll(".seat.selected");
+                    let quantity = selectedSeats.length;
+    
+                    if (quantity === 0) {
+                        alert("Please select at least one seat.");
+                        return;
+                    }
+    
+                    let source = document.getElementById("source")?.value || "N/A";
+                    let destination = document.getElementById("destination")?.value || "N/A";
+    
+                    document.getElementById("summary-source").innerText = source;
+                    document.getElementById("summary-destination").innerText = destination;
+                    document.getElementById("summary-quantity").innerText = quantity;
+    
+                    document.getElementById("booking-summary").style.display = "block";
+    
+                    // Mark selected seats as booked
+                    selectedSeats.forEach(seat => {
+                        seat.classList.remove("selected");
+                        seat.classList.add("booked");
+                    });
+    
+                    alert(`You have successfully booked ${quantity} seat(s)!`);
+                });
+            }
+        });
+
+        function bookSeat() {
+        let selectedSeats = document.querySelectorAll(".selected").length; // Count selected seats
+        let totalCost = selectedSeats * 350; // Calculate total cost
+
+        // Update booking details
+        document.getElementById("seatCount").textContent = selectedSeats;
+        document.getElementById("totalCost").textContent = totalCost;
+
+        // Show booking details
+        document.getElementById("bookingDetails").style.display = "block";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    let seats = document.querySelectorAll(".seat");
+    
+    seats.forEach(seat => {
+        seat.addEventListener("click", function () {
+            if (this.classList.contains("booked")) {
+                return; // Prevent selecting a booked seat
+            }
+
+            this.classList.toggle("selected"); // Toggle selection
+
+            if (this.classList.contains("selected")) {
+                this.style.backgroundColor = "green"; // Selected seats turn green
+                this.style.color = "white"; // Better visibility
+            } else {
+                this.style.backgroundColor = "white"; // Unselected turns white
+                this.style.color = "black";
+            }
+        });
+    });
+
+    let bookNowButton = document.getElementById("bookNowButton");
+
+    if (bookNowButton) {
+        bookNowButton.addEventListener("click", function () {
+            let selectedSeats = document.querySelectorAll(".seat.selected");
+            let quantity = selectedSeats.length;
+
+            console.log("Selected Seats:", quantity); // Debugging
+
+            if (quantity === 0) {
+                alert("Please select at least one seat.");
+                return;
+            }
+
+            let sourceElement = document.getElementById("source");
+            let destinationElement = document.getElementById("destination");
+
+            let source = sourceElement ? sourceElement.value : "N/A";
+            let destination = destinationElement ? destinationElement.value : "N/A";
+
+            let summarySource = document.getElementById("summary-source");
+            let summaryDestination = document.getElementById("summary-destination");
+            let summaryQuantity = document.getElementById("summary-quantity");
+
+            if (summarySource) summarySource.innerText = source;
+            if (summaryDestination) summaryDestination.innerText = destination;
+            if (summaryQuantity) summaryQuantity.innerText = quantity;
+
+            let bookingSummary = document.getElementById("booking-summary");
+            if (bookingSummary) bookingSummary.style.display = "block";
+
+            selectedSeats.forEach(seat => {
+                seat.classList.remove("selected");
+                seat.classList.add("booked");
+                seat.style.backgroundColor = "gray"; // Change booked seat color
+            });
+
+            alert(`You have successfully booked ${quantity} seat(s)!`);
+        });
+    }
+});
+
+window.onload = function() {
+    let source = localStorage.getItem("source");
+    let destination = localStorage.getItem("destination");
+
+    if (source && destination) {
+        document.getElementById("sourceValue").textContent = source;
+        document.getElementById("destinationValue").textContent = destination;
+    }
+};
+
+
+document.getElementById("proceedToPayment").addEventListener("click", function() {
+            let paymentSection = document.getElementById("payment-options");
+
+            // Show the payment section
+            paymentSection.style.display = "flex";
+
+            // Force scroll to the bottom smoothly
+            setTimeout(() => {
+                window.scrollTo({ 
+                    top: document.body.scrollHeight, 
+                    behavior: "smooth" 
+                });
+            }, 100);
+
+            // Add highlight effect
+            paymentSection.classList.add("highlight");
+
+            // Remove highlight after 2 seconds
+            setTimeout(() => {
+                paymentSection.classList.remove("highlight");
+            }, 2000);
+        });
+
+    </script>
+    
+</body>
+
+</html>
+

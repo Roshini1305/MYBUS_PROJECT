@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBus - Home</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Header Section */
+    .header {
+        background-color: #ffffff;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo img {
+        height: 110px;
+    }
+
+    .header-text {
+        color: #004aad;
+        margin-right: 50px;
+        white-space: nowrap;
+    }
+
+    .header-text h1 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .sub-text {
+        font-size: 14px;
+        color: #555;
+    }
+
+    /* Approval Boxes - Uniform Size */
+    .approvals {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+    }
+
+    .box {
+        background-color: #ffffff;
+        padding: 20px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        width: 180px;
+        height: 120px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        font-family: 'Arial', sans-serif;
+        border: 2px solid transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border: 3px solid #FFD700;
+
+    }
+
+    .box img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        border-color: #ffcc00;
+    }
+
+    /* Running Animation Section */
+
+
+    .running-section {
+        display: flex;
+        align-items: center;
+        background-color: red;
+        /* Red background */
+        padding: 3px 7px;
+        /* Remove padding so it sticks to the upper section */
+        margin-top: 0;
+        /* Ensure no extra space */
+        height: 60px;
+        /* Reduce height for a compact layout */
+    }
+
+
+
+
+    .fixed-left {
+        width: 30%;
+        font-size: 18px;
+        font-weight: bold;
+        color: #004aad;
+    }
+
+    .marquee-text {
+        width: 70%;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 18px;
+        /* Increase font size */
+        font-weight: bold;
+        /* Make text stand out */
+        flex-grow: 1;
+
+    }
+
+    .marquee-text span {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+        /* Slow down the animation */
+        color: white;
+        padding-left: 0;
+        /* Start from visible area */
+        min-width: 100%;
+        /* Ensure readability against the red background */
+    }
+
+    @keyframes marquee {
+        from {
+            transform: translateX(100%);
+        }
+
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+
+    /* Navigation Menu */
+    .nav-bar {
+        background-color: #004aad;
+        display: flex;
+        justify-content: center;
+        padding: 0px 0;
+    }
+
+    .nav-bar a {
+        color: white;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .nav-bar a:hover {
+        background-color: #ffcc00;
+        color: #004aad;
+        border-radius: 5px;
+    }
+
+    /* Announcement Button */
+    .announcement {
+        background-color: #FDC500;
+        /* Same Yellow as Boxes */
+        color: black;
+        padding: 10px 20px;
+        /* Keep original size */
+        border: none;
+        /* Removes the border */
+        border-radius: 5px;
+        font-size: 16px;
+        /* Keep original font size */
+        cursor: pointer;
+        transition: 0.3s;
+        margin-left: 20px;
+        margin-right: 20px;
+        height: auto;
+        /* Space between certification boxes */
+        display: flex;
+        align-items: center;
+        /* Center text vertically */
+        justify-content: center;
+        /* Center text horizontally */
+    }
+
+
+
+
+    .announcement:hover {
+        background-color: black;
+        color: yellow;
+    }
+
+    .certification-box {
+        display: inline-block;
+        padding: 3px 6px;
+        /* Reduce padding */
+        font-size: 12px;
+        /* Reduce font size */
+        border: 3px solid #FDC500;
+        /* Yellow border */
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+        width: 110px;
+        /* Reduce box width */
+        height: 40px;
+        /* Reduce box height */
+        margin-left: 20px;
+        /* Add left space */
+        margin-right: 8px;
+        /* Add spacing between boxes */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .certification-container {
+        margin-bottom: 15px;
+        /* Creates gap between boxes and Announcements */
+    }
+
+    * * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: white;
+    }
+
+    /* Top Bar */
+    .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: white;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 130px;
+        margin-right: 10px;
+
+    }
+
+    .logo h1 {
+        font-size: 22px;
+        color: #003366;
+    }
+
+    .logo p {
+        font-size: 12px;
+        color: gray;
+    }
+
+    /* Feature Icons */
+    .features {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .feature {
+        text-align: center;
+        border: 2px solid gold;
+        border-radius: 10px;
+        padding: 10px;
+        width: 120px;
+    }
+
+    .feature img {
+        width: 30px;
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        font-weight: bold;
+    }
+
+
+    /* Navigation Bar */
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        /* Aligns left and right sections */
+        align-items: center;
+        background-color: #002147;
+        /* Dark blue navbar */
+        padding: 10px 20px;
+    }
+
+    /* Left-aligned Navigation Links */
+    .nav-left {
+        display: flex;
+        gap: 20px;
+        /* Space between links */
+        margin-left: 60px;
+    }
+
+    .nav-left a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+
+    .nav-left a:hover {
+        background-color: #ffcc00;
+        color: black;
+    }
+
+    /* Right-aligned Buttons */
+    .nav-right {
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-button {
+        background-color: #FDC500;
+        color: black;
+        border: none;
+        padding: 8px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: Arial, sans-serif;
+    }
+
+    .nav-button:hover {
+        background-color: black;
+        color: yellow;
+    }
+
+    /* Common Button Styling */
+    /* Default Button Styling */
+    .button {
+        background-color: #ffc107;
+        /* Yellow */
+        color: black;
+        border: none;
+        padding: 8px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hover Effect */
+    .button:hover {
+        background-color: #ff9800;
+        /* Orange */
+        transform: scale(1.1);
+        /* Slight zoom */
+    }
+
+    /* Click (Active) Effect - Same as "Offers Available" */
+    .button:active,
+    .active-btn {
+        background-color: black !important;
+        /* Black */
+        color: #ffc107 !important;
+        /* Yellow */
+    }
+
+    /* Pop-up Styles */
+    .popup-overlay {
+display: none; /* Initially hidden */
+position: fixed; /* Ensures it overlays everything */
+top: 0;
+left: 0;
+width: 100vw; /* Full viewport width */
+height: 100vh; /* Full viewport height */
+background: rgba(0, 0, 0, 0.5); /* Dark overlay effect */
+justify-content: center;
+align-items: center;
+z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+.popup {
+background: white;
+padding: 20px;
+border-radius: 10px;
+max-width: 90%; /* Ensure it's responsive */
+text-align: center;
+}
+
+
+    .popup h2 {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .popup ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .popup ul li {
+        padding: 8px 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .close-btn {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+        margin: 10px auto;
+    }
+
+    /* Offers Button Effect */
+    .nav-button:active,
+    .nav-button.clicked {
+        background-color: black !important;
+        color: yellow !important;
+    }
+
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+        .offers-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+        }
+        .offer-box {
+            flex-basis: 30%;
+            background-size: cover;
+            margin-bottom: 20px;
+            background-position: center;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .offer-box p {
+            margin: 5px 0;
+        }
+        .offer-code {
+            font-weight: bold;
+            color: yellow;
+        }
+
+        /* Background Images for Each Offer */
+        .offer-wedding { background-image: url('/images/wedding-offer.jpg'); }
+        .offer-student { background-image: url('/images/student-discount.jpg'); }
+        .offer-senior { background-image: url('/images/senior-special.jpg'); }
+        .offer-wallet { background-image: url('/images/wallet-cashback.jpg'); }
+        .offer-weekend { background-image: url('/images/weekend-travel.jpg'); }
+        .offer-first { background-image: url('/images/first-booking.jpg'); }
+        .offer-midnight { background-image: url('/images/midnight-travel.jpg'); }
+        .offer-newuser { background-image: url('/images/new-user.jpg'); }
+        .offer-appuser { background-image: url('/images/app-user.jpg'); }
+        .offer-alltickets{ background-image: url('/images/alltickets.jpg'); }
+        .offer-buytwo { background-image: url('/images/buytwo.jpg'); }
+        .offer-festive { background-image: url('/images/festive.jpg'); }
+        .offer-refer { background-image: url('/images/refer.jpg'); }
+        .offer-group { background-image: url('/images/group.jpg'); }
+        .offer-insurance { background-image: url('/images/insurance.jpg'); }
+
+    </style>
+    </head>
+    <body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <img src="/images/bus logo.png" alt="MyBus Logo">
+            <div class="header-text">
+                <h1>MyBus - Smart Bus Tracking</h1>
+                <p class="sub-text">Approved by AICTE | Trusted by 1M+ Users | ISO Certified</p>
+            </div>
+        </div>
+
+        <!-- Approval Boxes -->
+        <div class="approvals">
+            <div class="box"><img src="/images/live tracking.jpg" alt="Tracking">Live Tracking</div>
+            <div class="box"><img src="/images/payment .jpg" alt="Payments">Secure Payments</div>
+            <div class="box"><img src="/images/book.jpg" alt="Booking">Fast Booking</div>
+            <div class="box"><img src="/images/bus.jpg" alt="Trust">Trusted Service</div>
+            <div class="box"><img src="/images/customer.jpg" alt="Support">Customer Support</div>
+        </div>
+    </div>
+    <!-- Running Animation Section -->
+    <div class="running-section">
+        <div class="certification-box">STA Certified</div>
+        <div class="certification-box">MoRTH Recognized</div>
+        <div class="certification-box">TNSTC Approved</div>
+        <div class="certification-box">ISO Certified</div>
+
+        <button class="announcement">Announcements</button>
+        <div class="marquee-text"><span>Welcome to MyBus! Track your bus live and enjoy safe travel.MyBus is a smart bus
+                tracking and automation system designed to enhance public transportation by providing real-time
+                tracking, digital ticketing, and route scheduling. It aims to offer a seamless travel experience for
+                passengers</span></div>
+
+    </div>
+    <div class="nav-container">
+        <!-- Left-aligned Navigation Links -->
+        <div class="nav-left">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/bus-routes">Bus Routes</a>
+            <a href="/live-tracking">Live Tracking</a>
+            <a href="/ticket-booking">Ticket Booking</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/offers">Offers</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+
+        <div class="nav-right">
+
+            <button class="nav-button" onclick="showOffers(this)">Offers Available</button>
+
+            <!-- Pop-up for Offers -->
+            <div id="offerPopup" class="popup-overlay">
+                <div class="popup">
+                    <h2>Available Offers</h2>
+                    <ul>
+                        <li>✨ Flat 10% off on all tickets</li>
+                        <li>🎁 Buy 2, Get 1 Free</li>
+                        <li>💰 20% Cashback on Wallet Payments</li>
+                        <li>📚 Student Discount: Save 15%</li>
+                        <li>👵 Senior Citizen Special: 25% Off</li>
+                        <li>🌟 Weekend Travel Discount: 12% Off</li>
+                        <li>🎉 Festive Special - ₹50 Off</li>
+                        <li>🤑 Refer & Earn ₹100</li>
+                        <li>🌄 Early Bird Offer: 8% Off</li>
+                        <li>✈ Free Travel Insurance</li>
+                        <li>💸 Flat ₹30 Off for New Users</li>
+                        <li>👥 Extra 5% Off for Group Bookings</li>
+                        <li>🚀 50% Off on First Booking</li>
+                        <li>🌜 Midnight Travel Deal: 15% Off</li>
+                        <li>📲 Exclusive App Users: ₹75 Cashback</li>
+                    </ul>
+                    <button class="close-btn" onclick="closeOffers()">Close</button>
+                </div>
+            </div>
+            <!-- Navigation Bar -->
+            <button id="login-btn" class="button" onclick="location.href='login.html'">Login</button>
+            <button id="signup-btn" class="button" onclick="location.href='signup.html'">Sign Up</button>
+
+
+
+        </div>
+    </div>
+
+    
+
+    <h2 style="text-align:center;  margin-top: 40px;">Bus Booking Discount Offers</h2>
+
+    <div class="offers-container">
+        <div class="offer-box offer-wedding">
+            <p>🎉 Traveling for a Wedding? Upto ₹500 off</p>
+            <p class="offer-code">Code: WEDDINGS</p>
+        </div>
+
+        <div class="offer-box offer-student">
+            <p color:black;>📚 Student Discount: Save 15%</p>
+            <p class="offer-code">Code: STUDENT</p>
+        </div>
+
+        <div class="offer-box offer-senior">
+            <p>👴 Senior Citizen Special: 25% Off</p>
+            <p class="offer-code">Code: 3457</p>
+        </div>
+
+        <div class="offer-box offer-wallet">
+            <p>💰 20% Cashback on Wallet Payments</p>
+            <p class="offer-code">Code: 6543</p>
+        </div>
+
+        <div class="offer-box offer-weekend">
+            <p>🌟 Weekend Travel Discount: 12% Off</p>
+            <p class="offer-code">Code: 1305</p>
+        </div>
+
+        <div class="offer-box offer-first">
+            <p>🎉 50% Off on First Booking</p>
+            <p class="offer-code">Code: 0411</p>
+        </div>
+
+        <div class="offer-box offer-midnight">
+            <p>🌙 Midnight Travel Deal: 15% Off</p>
+            <p class="offer-code">Code: SWEETNIGHT</p>
+        </div>
+
+        <div class="offer-box offer-newuser">
+            <p>🆕 Flat ₹30 Off for New Users</p>
+            <p class="offer-code">Code: WELCOME</p>
+        </div>
+
+        <div class="offer-box offer-appuser">
+            <p>📱 Exclusive App Users: ₹75 Cashback</p>
+        </div>
+
+        <div class="offer-box offer-alltickets">
+            <span>✨ Flat 10% off on all tickets</span>
+        </div>
+        <div class="offer-box offer-buytwo">
+            <span>🎁 Buy 2, Get 1 Free</span>
+        </div>
+        <div class="offer-box offer-festive">
+            <span>🎉 Festive Special - ₹50 Off</span>
+        </div>
+        <div class="offer-box offer-refer">
+            <span>🏆 Refer & Earn ₹100</span>
+        </div>
+        <div class="offer-box offer-group">
+            <span>🚀 Extra 5% Off for Group Bookings</span>
+        </div>
+        <div class="offer-box offer-insurance">
+            <span>✈ Free Travel Insurance</span>
+        </div>
+    
+    </div>
+    
+
+    
+    <script>
+        function loadPage(){
+        window.location.href="about.html";
+    }
+    function loadHome(){
+        window.location.href="index.html";
+    }
+    function loadBus(){
+        window.location.href="busroutes.html";
+    }
+    function feedBus(){
+        window.location.href="new.html";
+    }
+    
+    function loadOff(){
+        window.location.href="offer.html";
+    }
+    function loadCon(){
+        window.location.href="contactus.html";
+    }
+    function loadTicket(){
+        window.location.href="ticket.html";
+    }
+    function showOffers() {
+    let popup = document.getElementById('offerPopup');
+    popup.style.display = 'flex'; // Ensure it shows fully
+}
+
+function closeOffers() {
+    document.getElementById('offerPopup').style.display = 'none';
+}
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBus - About Us</title>
+    <style>
+
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            flex-wrap: nowrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo img {
+            height: 110px;
+        }
+
+        .header-text {
+            color: #004aad;
+            margin-right: 50px;
+            white-space: nowrap;
+        }
+
+        .header-text h1 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Approval Boxes - Uniform Size */
+        .approvals {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+
+        }
+
+        .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    white-space: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 200px; /* Adjust as needed */
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+        .carousel {
+    display: flex;
+    gap: 10px; /* Space between images */
+    transition: transform 0.5s ease-in-out;
+    width: max-content; 
+}
+
+
+
+        .approvals1 {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            padding: 80px;
+            
+    scroll-behavior: smooth;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ccc transparent;
+    width: 100%;
+    overflow: hidden;
+
+    
+
+
+        }
+
+        .approvals1::-webkit-scrollbar {
+    height: 5px;
+}
+
+.approvals1::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.approvals1::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+         .box1 {
+             /* Prevents shrinking */
+            min-width: 200px;
+            background-color: #ffffff;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 250px;
+            height: 230px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid grey;
+            transition: transform 0.3s ease-in-out;
+            
+    margin-right: 10px;
+
+        
+
+        }
+        .box1 img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border-radius: 10px;
+            width: 200px; /* Adjust size */
+    height: 150px;
+    margin-right: 10px;
+           
+        }
+        .box {
+            background-color: #ffffff;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 180px;
+            height: 120px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px solid #FFD700;
+            color:black;
+
+        }
+
+
+        .box img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+            
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-color: #ffcc00;
+        }
+
+        /* Running Animation Section */
+
+
+        .running-section {
+            display: flex;
+            align-items: center;
+            background-color: red;
+            /* Red background */
+            padding: 3px 7px;
+            /* Remove padding so it sticks to the upper section */
+            margin-top: 0;
+            /* Ensure no extra space */
+            height: 60px;
+            /* Reduce height for a compact layout */
+        }
+
+
+
+
+        .fixed-left {
+            width: 30%;
+            font-size: 18px;
+            font-weight: bold;
+            color: #004aad;
+        }
+
+        .marquee-text {
+            width: 70%;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 18px;
+            /* Increase font size */
+            font-weight: bold;
+            /* Make text stand out */
+            flex-grow: 1;
+
+        }
+
+        .marquee-text span {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            /* Slow down the animation */
+            color: white;
+            padding-left: 0;
+            /* Start from visible area */
+            min-width: 100%;
+            /* Ensure readability against the red background */
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+        /* Navigation Menu */
+        .nav-bar {
+            background-color: #004aad;
+            display: flex;
+            justify-content: center;
+            padding: 0px 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-bar a:hover {
+            background-color: #ffcc00;
+            color: #004aad;
+            border-radius: 5px;
+        }
+
+        /* Announcement Button */
+        .announcement {
+            background-color: #FDC500;
+            /* Same Yellow as Boxes */
+            color: black;
+            padding: 10px 20px;
+            /* Keep original size */
+            border: none;
+            /* Removes the border */
+            border-radius: 5px;
+            font-size: 16px;
+            /* Keep original font size */
+            cursor: pointer;
+            transition: 0.3s;
+            margin-left: 20px;
+            margin-right: 20px;
+            height: auto;
+            /* Space between certification boxes */
+            display: flex;
+            align-items: center;
+            /* Center text vertically */
+            justify-content: center;
+            /* Center text horizontally */
+        }
+
+
+
+
+        .announcement:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        .certification-box {
+            display: inline-block;
+            padding: 3px 6px;
+            /* Reduce padding */
+            font-size: 12px;
+            /* Reduce font size */
+            border: 3px solid #FDC500;
+            /* Yellow border */
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            width: 110px;
+            /* Reduce box width */
+            height: 40px;
+            /* Reduce box height */
+            margin-left: 20px;
+            /* Add left space */
+            margin-right: 8px;
+            /* Add spacing between boxes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certification-container {
+            margin-bottom: 15px;
+            /* Creates gap between boxes and Announcements */
+        }
+
+        * * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        /* Top Bar */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: white;
+            
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 130px;
+            margin-right: 10px;
+
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            color: #003366;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: gray;
+        }
+
+        /* Feature Icons */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .feature {
+            text-align: center;
+            border: 2px solid gold;
+            border-radius: 10px;
+            padding: 10px;
+            width: 120px;
+        }
+
+        .feature img {
+            width: 30px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+        }
+
+
+        /* Navigation Bar */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            /* Aligns left and right sections */
+            align-items: center;
+            background-color: #002147;
+            /* Dark blue navbar */
+            padding: 10px 20px;
+        }
+
+        /* Left-aligned Navigation Links */
+        .nav-left {
+            display: flex;
+            gap: 20px;
+            /* Space between links */
+            margin-left: 60px;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .nav-left a:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        /* Right-aligned Buttons */
+        .nav-right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-button {
+            background-color: #FDC500;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-button:hover {
+            background-color: black;
+            color: yellow;
+        }
+
+        /* Common Button Styling */
+        /* Default Button Styling */
+        .button {
+            background-color: #ffc107;
+            /* Yellow */
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover Effect */
+        .button:hover {
+            background-color: #ff9800;
+            /* Orange */
+            transform: scale(1.1);
+            /* Slight zoom */
+        }
+
+        /* Click (Active) Effect - Same as "Offers Available" */
+        .button:active,
+        .active-btn {
+            background-color: black !important;
+            /* Black */
+            color: #ffc107 !important;
+            /* Yellow */
+        }
+
+        /* Pop-up Styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            width: 350px;
+        }
+
+        .popup h2 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .popup ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popup ul li {
+            padding: 8px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Offers Button Effect */
+        .nav-button:active,
+        .nav-button.clicked {
+            background-color: black !important;
+            color: yellow !important;
+        }
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            
+    justify-content: center;
+    align-items: center;
+            /* Smooth scrolling when clicking menu */
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            background-color: #FDC500;
+            color: black;
+            padding: 9px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            /* Center align */
+            gap: 50px;
+            /* Space between menu items */
+            font-size: 16px;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 7px 10px;
+            transition: background-color 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        /* Yellow Transition Effect */
+        .top-bar a:hover {
+            background-color: #002147;
+            color: white;
+        }
+
+        /* Header Section */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            margin-top: 0px;
+        
+            height:150px;
+            /* Set height for layout uniformity */
+        }
+
+        .logo {
+            width: 120px;
+            /* Reduced size */
+            height: auto;
+        }
+
+        .title-section {
+            text-align: center;
+            flex-grow: 2;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #002147;
+        }
+
+        .title-section p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .right-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensure it takes up the full container height */
+}
+
+
+
+        .travel-tagline {
+            position: absolute;
+    bottom: 400px; /* Adjust as needed */
+    right: 50px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+    
+}
+
+        
+
+        .partner-text {
+            font-size: 16px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .badge-space {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    gap: 10px; /* Adds spacing between images */
+    width: 100%; /* Ensures the container takes full width */
+}
+
+.badge-space img {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintains aspect ratio */
+}
+
+
+        /* About Us Section */
+                
+.about-section {
+    width: 80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+        .about-section h2 {
+            color: #002147;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            gap:30px;
+            padding-top: 0; /* Reduce extra padding above */
+    margin-top: 0;
+        }
+        .about-text {
+    flex: 1;
+    text-align: left;
+    margin-right:20px;
+}
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            text-align: center;
+        }
+        h1 {
+            color: black;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .vision-mission {
+            display: flex;
+            
+            align-items: center;
+            gap: 100px;
+            padding: 50px 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .vision, .mission {
+            width: 45%;
+            height: 300px;
+            padding: 40px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #fff;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+        .vision:hover, .mission:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+        .vision img{
+            width: 120px;
+            height:120px;
+        }
+        .mission img {
+            width: 200px;
+            height:200px;
+        }
+        .vision-content, .mission-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .vision h2, .mission h2 {
+            margin: 0;
+            text-align: left;
+        }
+        .vision p, .mission p {
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .company-overview, .our-story, .founders, .core-values, .key-features, .user-testimonials {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+        .about-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    justify-content: center; /* Centers items */
+    gap: 20px; /* Space between items */
+    width: 90%;
+    background: white;
+    margin: auto;
+}
+
+.about-section {
+    width: 100%; /* Full width */
+    margin: 20px 0; /* Add spacing between sections */
+    padding: 15px; /* Add padding for better readability */
+    border: none; /* Remove borders */
+    box-shadow: none; /* Remove box effect */
+    background: transparent; /* Remove background color */
+}
+
+
+.about-section h2 {
+    color: #002147;
+    border-bottom: 3px solid #f4b400;
+    padding-bottom: 8px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.about-section, .core-values, .key-features, .founders, .user-testimonials {
+    line-height: 1.8;  /* Increases spacing between lines */
+    margin-bottom: 15px; /* Adds space between paragraphs */
+}
+
+.about-section h2, .core-values h2, .key-features h2, .founders h2, .user-testimonials h2 {
+    margin-bottom: 12px; /* Adds spacing below section titles */
+    font-size: 22px;
+}
+
+.about-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+
+/* Make it single-column on smaller screens */
+@media (max-width: 768px) {
+    .about-section {
+        width: 100%;
+    }
+}
+.about-section p {
+    line-height: 1.6;  /* Increases space between lines */
+    margin-bottom: 12px; /* Adds space between paragraphs */
+}
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollAnimation 10s linear infinite alternate; /* Moves forward & backward */
+}
+
+.box1 {
+    min-width: 200px; /* Adjust based on image size */
+    transition: transform 0.5s ease-in-out;
+}
+
+.box1 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Smooth infinite scrolling effect */
+@keyframes scrollAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">
+            <img src="/images/bus logo.png" alt="MyBus Logo">
+            <div class="header-text">
+                <h1>MyBus - Smart Bus Tracking</h1>
+                <p class="sub-text">Approved by AICTE | Trusted by 1M+ Users | ISO Certified</p>
+            </div>
+        </div>
+
+        <!-- Approval Boxes -->
+        <div class="approvals">
+            <div class="box"><img src="/images/live tracking.jpg" alt="Tracking">Live Tracking</div>
+            <div class="box"><img src="/images/payment .jpg" alt="Payments">Secure Payments</div>
+            <div class="box"><img src="/images/book.jpg" alt="Booking">Fast Booking</div>
+            <div class="box"><img src="/images/bus.jpg" alt="Trust">Trusted Service</div>
+            <div class="box"><img src="/images/customer.jpg" alt="Support">Customer Support</div>
+        </div>
+    </div>
+    <!-- Running Animation Section -->
+    <div class="running-section">
+        <div class="certification-box">STA Certified</div>
+        <div class="certification-box">MoRTH Recognized</div>
+        <div class="certification-box">TNSTC Approved</div>
+        <div class="certification-box">ISO Certified</div>
+
+        <button class="announcement">Announcements</button>
+        <div class="marquee-text"><span>Welcome to MyBus! Track your bus live and enjoy safe travel.MyBus is a smart bus
+                tracking and automation system designed to enhance public transportation by providing real-time
+                tracking, digital ticketing, and route scheduling. It aims to offer a seamless travel experience for
+                passengers</span></div>
+
+    </div>
+    <div class="nav-container">
+        <!-- Left-aligned Navigation Links -->
+        <div class="nav-left">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/bus-routes">Bus Routes</a>
+            <a href="/live-tracking">Live Tracking</a>
+            <a href="/ticket-booking">Ticket Booking</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/offers">Offers</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+
+        <div class="nav-right">
+
+            <button class="nav-button" onclick="showOffers(this)">Offers Available</button>
+
+            <!-- Pop-up for Offers -->
+            <div id="offerPopup" class="popup-overlay">
+                <div class="popup">
+                    <h2>Available Offers</h2>
+                    <ul>
+                        <li>✨ Flat 10% off on all tickets</li>
+                        <li>🎁 Buy 2, Get 1 Free</li>
+                        <li>💰 20% Cashback on Wallet Payments</li>
+                        <li>📚 Student Discount: Save 15%</li>
+                        <li>👵 Senior Citizen Special: 25% Off</li>
+                        <li>🌟 Weekend Travel Discount: 12% Off</li>
+                        <li>🎉 Festive Special - ₹50 Off</li>
+                        <li>🤑 Refer & Earn ₹100</li>
+                        <li>🌄 Early Bird Offer: 8% Off</li>
+                        <li>✈ Free Travel Insurance</li>
+                        <li>💸 Flat ₹30 Off for New Users</li>
+                        <li>👥 Extra 5% Off for Group Bookings</li>
+                        <li>🚀 50% Off on First Booking</li>
+                        <li>🌜 Midnight Travel Deal: 15% Off</li>
+                        <li>📲 Exclusive App Users: ₹75 Cashback</li>
+                    </ul>
+                    <button class="close-btn" onclick="closeOffers()">Close</button>
+                </div>
+            </div>
+            <!-- Navigation Bar -->
+            
+
+
+
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-bar">
+        <a href="#about">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contactus.html">Contact</a>
+    </div>
+
+    <!-- Header Section -->
+    
+    <h1>OUR VISION & MISSION</h1>
+
+    <section class="vision-mission">
+        <div class="vision">
+            <img src="/images/vision.png" alt="Vision Icon">
+            <div class="vision-content">
+                <h2>VISION</h2>
+                <p>We dream of a world where missing a bus is history. Where every commuter knows exactly when, where, and how they’ll reach their destination—fast, smart, and stress-free.</p>
+                <p>Our goal is to bridge the gap between technology and transit, ensuring accessibility and convenience for everyone. By harnessing real-time data and AI-driven insights, we aim to redefine the commuting experience.</p>
+            </div>
+        </div>
+        <div class="mission">
+            <img src="/images/mission.png" alt="Mission Icon">
+            <div class="mission-content">
+                <h2>MISSION</h2>
+                <p>We are here to take the ‘waiting’ out of public transport! By leveraging cutting-edge AI, smart scheduling, and digital ticketing, MyBus is committed to transforming your everyday commute into an effortless experience.</p>
+                <p>Through innovation and smart technology, we strive to create a sustainable, efficient, and user-friendly transit system that enhances urban mobility and reduces travel uncertainties.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-container">
+        <div class="about-section">
+            <h2>Company Overview</h2>
+            <p style="text-align: left; margin-left:20px ;">MyBus is a next-generation smart bus tracking and ticket booking platform that transforms the way people commute. Our mission is to provide seamless, real-time tracking, AI-powered route optimization, and secure ticketing solutions. We aim to bridge the gap between technology and transportation, ensuring efficient, stress-free travel for millions of passengers daily.</p>
+            <p style="text-align: left; margin-left:20px ;">With our state-of-the-art infrastructure, we strive to make bus transportation more reliable, predictable, and convenient. Whether you're a daily commuter, a traveler, or a transport operator, MyBus is designed to simplify your journey with its innovative features.</p>
+        </div>
+    
+        <div class="about-section">
+            <h2>Our Story</h2>
+            <p style="text-align: left; margin-left:20px ;">The journey of MyBus started with a simple question: **"How can we eliminate the frustration of waiting for a bus?"** Recognizing the gaps in public transportation systems—delays, lack of transparency, and unreliable schedules—we set out to create a solution that would **empower commuters** with real-time tracking and smart scheduling.</p>
+            <p style="text-align: left; margin-left:20px ;">Our initial prototype was a simple bus tracking tool, but through continuous innovation, we evolved into a **full-fledged digital transit platform**. Today, we serve thousands of daily users, offering **AI-driven predictions, ticketing services, and seamless customer support** to make public transport more efficient than ever before.</p>
+        </div>
+    
+        <div class="about-section">
+            <h2>Founders</h2>
+            <p style="text-align: left; margin-left:20px ;">MyBus was founded by a team of passionate innovators, engineers, and transportation specialists who envisioned a **future where missing a bus is a thing of the past**. With diverse backgrounds in AI, machine learning, and urban mobility, our team combined expertise to build a platform that redefines modern commuting.</p>
+            <p style="text-align: left; margin-left:20px ;">Our founders believe that technology should **simplify lives, not complicate them**. This philosophy drives every decision we make—from enhancing user experience to integrating cutting-edge AI models for smart scheduling and predictive analytics.</p>
+        </div>
+    
+        <div class="about-section">
+            <h2>Core Values</h2>
+            <ul>
+                <li style="text-align: left; margin-left:20px ;"><strong>Efficiency:</strong> We minimize waiting times and optimize travel routes for a smoother journey.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Innovation:</strong> We leverage AI, automation, and real-time data to revolutionize bus travel.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Reliability:</strong> We ensure **accurate tracking, secure bookings, and hassle-free commuting.**</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Customer-Centric Approach:</strong> We prioritize user experience, offering 24/7 support and **intuitive navigation**.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Sustainability:</strong> By promoting **public transport over private vehicles**, we contribute to reducing carbon emissions and urban congestion.</li>
+            </ul>
+        </div>
+    
+        <div class="about-section">
+            <h2>Key Features</h2>
+            <ul>
+                <li style="text-align: left; margin-left:20px ;"><strong>Live Tracking:</strong> Get real-time updates on bus locations, estimated arrival times, and unexpected delays.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>AI-Powered Route Optimization:</strong> Our system suggests **best routes** based on **historical data and live traffic conditions**.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Secure Online Ticket Booking:</strong> Reserve your seats in advance with **seamless digital payments and instant confirmation**.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Smart Notifications:</strong> Receive alerts for bus arrivals, schedule changes, and seat availability updates.</li>
+                <li style="text-align: left; margin-left:20px ;"><strong>Multi-Platform Access:</strong> Use MyBus on **desktop, mobile, and tablet devices** for a flexible and convenient experience.</li>
+            </ul>
+        </div>
+    
+        <div class="about-section">
+            <h2>User Testimonials</h2>
+            <p style="text-align: left; margin-left:20px ;"><strong>Rajesh K.</strong>: "MyBus completely changed how I commute! The live tracking feature ensures I never miss my bus, and booking tickets online is incredibly convenient. **Highly recommended!**"</p>
+            <p style="text-align: left; margin-left:20px ;"><strong>Priya S.</strong>: "Finally, a solution that takes the guesswork out of public transport. I love how I can plan my trip in advance and get real-time updates. **MyBus is a game-changer!**"</p>
+            <p style="text-align: left; margin-left:20px ;"><strong>Arun M.</strong>: "As a frequent traveler, I always struggled with unpredictable bus schedules. MyBus provides **accurate tracking and seamless ticket booking**, making my journeys stress-free!"</p>
+            <p style="text-align: left; margin-left:20px ;"><strong>Neha T.</strong>: "Booking bus tickets has never been easier! The AI-powered route optimization helps me find the best routes instantly. <strong>Super convenient!</strong>"</p>
+
+    
+    
+    </section>
+     
+    <div class="carousel-container">
+        <div class="carousel">
+       
+        <div class="box1"><img src="/images/morebus.avif" alt="Payments"></div>
+        <div class="box1"><img src="/images/bus100.jpg" alt="Payments"></div>
+        <div class="box1"><img src="/images/hanger.jpg" alt="Booking"></div>
+        <div class="box1"><img src="/images/newseat.jpg" alt="Trust"></div>
+        <div class="box1"><img src="/images/seat.jpg" alt="Support"></div>
+        <div class="box1"><img src="/images/driver.jpg" alt="Payments"></div>
+        <div class="box1"><img src="/images/seat3.jpg" alt="Booking"></div>
+        <div class="box1"><img src="/images/anna.jpg" alt="Trust"></div>
+        <div class="box1"><img src="/images/header.jpg" alt="Support"></div>
+        <div class="box1"><img src="/images/akka.jpg" alt="Support"></div>
+        <div class="box1"><img src="/images/bus11.jpg" alt="Tracking"></div>
+        
+    </div>
+       
+    </div>
+
+    <script>
+        
+
+        function loadHome(){
+        window.location.href="index.html";
+    }
+    function loadBus(){
+        window.location.href="busroutes.html";
+    }
+    function loadnew(){
+        window.location.href="new.html";
+    }
+    function loadOff(){
+        window.location.href="offer.html";
+    }
+    function loadCon(){
+        window.location.href="contactus.html";
+    }
+    function loadTicket(){
+        window.location.href="ticket.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(
+        ".vision-mission, .why-mybus, .company-overview, .our-story, .founders, .core-values, .key-features, .user-testimonials"
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(50px)";
+        observer.observe(section);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".about-section");
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    let direction = 1; // 1 for right, -1 for left
+
+    function moveCarousel() {
+        let scrollAmount = 2 * direction;
+        carousel.style.transform = `translateX(${scrollAmount}px)`;
+    }
+
+    setInterval(() => {
+        let currentTranslate = parseInt(carousel.style.transform.replace("translateX(", "").replace("px)", "")) || 0;
+        
+        // Reverse direction when reaching edges
+        if (currentTranslate <= -carousel.scrollWidth / 2 || currentTranslate >= 0) {
+            direction *= -1;
+        }
+        
+        moveCarousel();
+    }, 50);
+});
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>5

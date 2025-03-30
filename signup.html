@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - MyBus</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+       document.getElementById("signupForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get input values
+        let name = document.getElementById("signup-name").value.trim();
+        let email = document.getElementById("signup-email").value.trim();
+        let password = document.getElementById("signup-password").value;
+
+        // Validate inputs
+        if (!name || !email || !password) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Send data to backend
+        try {
+            const response = await fetch("http://localhost:3000/signup", { // Ensure this matches backend
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, password })
+            });
+
+            // Attempt to parse JSON even if response is not ok
+            const data = await response.json().catch(() => {
+                throw new Error("Invalid JSON response from server.");
+            });
+
+            console.log("Server Response:", data);
+
+            if (response.ok) {
+                alert("Signup Successful! Redirecting to Login...");
+                window.location.href = "login.html"; // Redirect after success
+            } else {
+                alert("Signup Failed: " + (data.message || "Unknown error"));
+            }
+        } catch (error) {
+            console.error("❌ Fetch Error:", error);
+            alert("Error connecting to server. Make sure the backend is running!");
+        }
+
+        const response = await fetch('/signup', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+        // Store user data in localStorage
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+
+        // Redirect to home page
+        window.location.href = "index.html";
+    } else {
+        alert(data.message);
+    }
+    });
+    </script>
+
+</body>
+</html>
+
