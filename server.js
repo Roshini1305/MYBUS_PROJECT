@@ -243,19 +243,7 @@ const PORT = process.env.PORT || 3000;// Start Server
 app.get("/", (req, res) => {
   res.send("Backend is live!");
 });
-app.post("/search-bus", (req, res) => {
-  let { source, destination, time } = req.body;
 
-  let query = "SELECT source, destination, formatted_time FROM buses WHERE source=? AND destination=? AND formatted_time=?";
-  db.query(query, [source, destination, time], (err, result) => {
-      if (err) {
-          console.error("Database Error:", err);
-          res.status(500).json({ error: "Database error" });
-      } else {
-          res.json(result); // Send data without hashed_route_number
-      }
-  });
-});
 
 
 app.listen(PORT, () => {
