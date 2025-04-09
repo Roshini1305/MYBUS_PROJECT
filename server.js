@@ -238,9 +238,11 @@ app.post("/search-bus", (req, res) => {
     res.json(results);
   });
 });
-const PORT = 3000;
-// Start Server
+const PORT = process.env.PORT || 3000;// Start Server
 
+app.get("/", (req, res) => {
+  res.send("Backend is live!");
+});
 app.post("/search-bus", (req, res) => {
   let { source, destination, time } = req.body;
 
