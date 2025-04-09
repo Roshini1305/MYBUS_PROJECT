@@ -775,7 +775,7 @@ function searchBusRoutes() {
     /*document.getElementById("bus-routes-result").innerHTML =
         `<p>Searching for buses from <strong>${source}</strong> to <strong>${destination}</strong> at <strong>${time}</strong>...</p>`;*/
 
-    fetch("http://localhost:3000/search-bus", {
+    fetch("https://mybus-project.onrender.com/search-bus", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ source, destination, time })
