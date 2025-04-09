@@ -27,10 +27,10 @@ app.get('/', (req, res) => {
 
 // MySQL Connection
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "$ENTH!LKUM@R_13a",
-  database: "mybus_db",
+  host: process.env.DB_HOST,   // e.g., "localhost" or your Render PostgreSQL/MySQL host
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 db.connect((err) => {
